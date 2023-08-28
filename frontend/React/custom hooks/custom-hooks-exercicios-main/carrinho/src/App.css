@@ -1,0 +1,85 @@
+
+
+header{
+  padding: 20px;
+  background-color: #a2d2ff;
+}
+.LoveIt{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.JustBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;   
+  width: 300px;
+  height: fit-content;
+  border: 1px dotted rgba(0,0,0,.2);
+  border-radius: 12px;
+  margin-top: 20px;
+}
+.JustBox input{
+  width: 50px;
+  border: none;
+  outline: none;
+  background-color: bisque;
+  margin-top: 10px;
+  height: 20px;
+  border-radius: 12px;
+  text-align: center;  
+  cursor: pointer;
+}
+
+
+.Btn{
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 10px;
+  background-color: #a2d2ff;
+  color: rgb(0, 0, 0);
+}
+
+.Btn:nth-child(2){
+  background-color: #d6ccc2;
+}
+
+.Btn:hover{
+  cursor: pointer;
+}
+
+.Btn:active{
+  transform: scale(0.9);
+}
+
+.Reset, .Plus, .Minus{
+  background-image: url('/public/restart.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Plus{
+  background-image: url('/public/add.svg');  
+}
+.Minus{
+  background-image: url('/public/remove.svg');  
+}
+
+.Controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.Coffee{
+  height: 150px;
+}

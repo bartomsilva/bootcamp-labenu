@@ -1,0 +1,11 @@
+*.db
+node_modules
+build
+*lock*
+*.db
+.env
+.DS_Store
+*.pdf
+*.zip
+*.arj
+*.exe

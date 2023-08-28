@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./styles.css" rel="stylesheet" text="text/css" />
+    <script src="./naoMexer.js"></script>
+</head>
+<body>
+    <section class="score">
+        <div>
+            <p><span id="scoreUser"></span></p>
+        </div>
+        <div>
+            <p><span id="alert">Pense com Cuidado na sua jogada!!!</span>
+        </div>
+        <div>
+            <p><span id="scorePc"></span></p>
+        </div>
+    </section>
+    <section class="container flex" id="container">
+        <div class="mesa flex" id="user">
+        </div>
+        <div class="mesa flex" id="pc">
+        </div>
+    </section>
+
+    <section class="game flex">
+        <div>
+            <button id="b1">Olá, vamos jogar o Blackjack do Bart?</button>
+            <button id="b2" onclick="window.close(this)">Fechar</button>
+            <button id="b3" class="none">Comprar Carta</button>
+            <button id="b4" class="none">pagar pra Ver</button>
+        </div>
+    </section>
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    color: white;
+    box-sizing: border-box;
+}
+
+#item-1 {
+    background-color: steelblue;
+    grid-area: principal;
+
+}
+
+#item-2 {
+    background-color: #fe7e02;
+    grid-area: lateral-1;
+}
+
+#item-3 {
+    background-color: #45525b;
+    grid-area: lateral-2;
+
+}
+
+body {
+    min-width: 250px;
+}
+
+main {
+    margin: 20px auto;
+}
+
+.container {
+
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+        "lateral-1 principal lateral-2";
+    justify-content: center;
+    gap: 10px 10px;
+}
+
+#item-2 p,
+#item-3 p {
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+}
+
+#item-1,
+#item-2,
+#item-3 {
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.c-hidden-1200m,
+.c-hidden-1200,
+.c-hidden-1000,
+.c-hidden-1000- {
+    visibility: hidden;
+}
+
+p {
+    padding: 0 10px;
+}
+
+@media screen and (min-width: 1251px) {
+    .c-hidden-1200m {
+        visibility: visible;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .c-hidden-1200m p {
+        color: black;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width:1250px) {
+    .container {
+        grid-template-columns: 200px 800px 200px;
+    }
+
+    .c-hidden-1200 {
+        visibility: visible;
+    }
+}
+
+/* de 1000 até 1199px mantenho o plano dos 800px e 200px */
+@media screen and (min-width: 1000px) and (max-width: 1199px) {
+    .container {
+        font-size: 80%;
+        color: green;
+        grid-template-columns: 800px 200px;
+        grid-template-rows: 80vh 20vh;
+        grid-template-areas:
+            "principal lateral-2"
+            "lateral-1 lateral-1";
+    }
+
+    #item-2 p {
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+    }
+
+    .c-hidden-1000 {
+        visibility: visible;
+    }
+}
+
+/* abaixo de 1000px e acima de 800px*/
+@media screen and (max-width: 1000px) {
+    .container {
+        font-size: 70%;
+        grid-template-columns: 50vw 50vw;
+        grid-template-rows: 80vh 20vh;
+        grid-template-areas:
+            "principal principal"
+            "lateral-1 lateral-2";
+        gap: 5px;
+    }
+
+    #item-2 p,
+    #item-3 p {
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+        font-size: 90%;
+    }
+
+    .c-hidden-1000- {
+        visibility: visible;
+    }
+}

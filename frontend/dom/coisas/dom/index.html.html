@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM criando card interativamente</title>
+</head>
+
+<body>
+    <!-- 
+        como funciona 
+        tempos um input que recebe o nome da turma que desejamos pesquisar ou vázio para ver todas turmas
+        como a pesquisa e feita com includes pode ter retorno de várias turmas por exemplo que contém a letra a
+
+        feita a seleção por parte ou todas o resultado vai ficar em uma variável chamada result que é um array contendo
+        os dados da(s) turma(s)
+
+        para percorrer as turmas utilizei o map que corre todo o array result e modifica o conteúdo com base em um template
+        previamente definido que é justamente os dados de cada card
+
+        esse retorno que é como sabemos um nova array ( retorno do map ) é transformado em string com o join para dai
+        ser inserido no container pai ( card ) para inserção sabemos que utilizamos o innerHTML 
+
+        a função que cria o template recebe do map os dados de cada elemento do array e utiliza template strings para 
+        montagem de cada card.
+
+        leia toda função interpretando, pesquisando sobre os conceitos para melhor clareza.
+     -->
+
+    <main>
+
+
+        <!-- espaço para selecionar a turma -->
+        <div>
+            <input type="text" id="nomeTurma" name="nomeTurma">
+            <button onclick="criarGrid()">Turmas</button>
+        </div>
+
+        <!-- aqui é onde vão ficar os cards  container pai dos cards-->
+        <div id="cards">
+         
+      
+        </div>
+
+
+    </main>
+
+    <!-- 
+    
+        o script deve ficar em um arquivo externo 
+        deixei aqui junto para facilitar a visualização,
+    
+    -->
+
+    <script>
+        // array de objetos para testar a função
+        const minhasTurmas = [
+            {
+                turma: "Hipátia",
+                curso: "JavaScript",
+                inicio: "30/11/2022",
+                termino: "30/01/2023",
+                numeroAlunos: 150,
+                periodo: "Noturno",
+                concluida: false
+            },
+            {
+                turma: "Sibyla",
+                curso: "JavaScript",
+                inicio: "30/10/2022",
+                termino: "30/12/2022",
+                numeroAlunos: 200,
+                periodo: "Integral",
+                concluida: false
+            },
+            {
+                turma: "Curie",
+                curso: "HTML e CSS",
+                inicio: "15/09/2022",
+                termino: "15/10/2022",
+                numeroAlunos: 180,
+                periodo: "Noturno",
+                concluida: true
+            },
+            {
+                turma: "Zhenyi",
+                curso: "HTML e CSS",
+                inicio: "01/11/2022",
+                termino: "01/01/2023",
+                numeroAlunos: 80,
+                periodo: "Integral",
+                concluida: false
+            },
+            {
+                turma: "Clarke",
+                curso: "HTML e CSS",
+                inicio: "04/07/2022",
+                termino: "04/09/2022",
+                numeroAlunos: 200,
+                periodo: "Noturno",
+                concluida: true
+            },
+            {
+                turma: "Blackwell",
+                curso: "APIsRest",
+                inicio: "20/03/2022",
+                termino: "20/06/2022",
+                numeroAlunos: 100,
+                periodo: "Integral",
+                concluida: true
+            },
+            {
+                turma: "Elion",
+                curso: "APIsRest",
+                inicio: "12/01/2022",
+                termino: "12/06/2022",
+                numeroAlunos: 200,
+                periodo: "Noturno",
+                concluida: true
+            },
+            {
+                turma: "Burnell",
+                curso: "APIsRest",
+                inicio: "18/10/2022",
+                termino: "18/04/2023",
+                numeroAlunos: 90,
+                periodo: "Integral",
+                concluida: false
+            },
+        ]
+
+        // função que recebe o array e cria os cards lendo do array de turmas
+        // e chamando a função interna addCard
+
+        function criarGrid() {
+            let result = ''
+            // este é o pai o container onde ficaram os cards
+            const cards = document.getElementById('cards')
+            const turma = document.getElementById('nomeTurma').value
+
+            //  previamente selecionada...
+            if (!turma) {
+                result = minhasTurmas
+            } else {
+                result = buscarTurma(turma)
+            }
+   
+            // adicionando o card ao container ( nesse caso usa-se 0 o += para adicionar apenas + substituiria)
+            cards.innerHTML = result.map((e) => {
+                return addCard(e.turma, e.curso, e.inicio, e.termino, e.numeroAlunos, e.periodo, e.concluida)
+            }).join('')
+        }
+
+
+        // esta função adiciona ao DOM de forma dinâmica a nova div, vale lembrar que 
+        // as formatações precisam sem feitas no css, aqui é criado apenas os cards
+        // com os dados de cada turma.
+        function addCard(turma, curso, inicio, termino, numAlunos, periodo, concluido) {
+
+            // esse é o template para montar cada card..
+            return `
+                    <div>
+                        <p class="nameClass">${turma}</p>
+                        <p class='card-caption'>Curso: <span class='card-descr'>${curso}</span></p>
+                        <p class='card-caption'>Inicio: <span class='card-descr'>${inicio}</span></p>
+                        <p class='card-caption'>Término: <span class='card-descr'>${termino}</span></p>
+                        <p class='card-caption'>Número de Alunos: <span class='card-descr'>${numAlunos}</span></p>
+                        <p class='card-caption'>Período: <span class='card-descr'>${periodo}</span></p>
+                        <p class='card-caption'>Concluído: <span class='card-descr'>${concluido ? "sim" : "não"}</span></p>
+                    </div>
+                `
+
+        }
+
+
+        function buscarTurma(turma) {
+            return minhasTurmas.filter(e => e.turma.toLowerCase().includes(turma.toLowerCase()))
+        }
+
+    </script>
+    <!-- arquivo CSS apenas para dar visibilidade aos card criados
+    a estilização correta deve ser feita no seu css. 
+    obs: o css também deve estar externo
+    -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .nameClass {
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        .card-caption {
+            font-weight: 800;
+        }
+
+        .card-descr {
+            /* o valor initial restaura o estado ao padrão, faça conf. sua necessidade */
+            font-weight: initial;
+        }
+
+        main {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cards {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 65vw;
+            height: 60vh;
+            gap: 6px;
+            background-color: rgb(231, 180, 10);
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #cards div {
+            background-color: rgb(255, 255, 255);
+            width: 180px;
+            height: 150px;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        h2 {
+            margin-bottom: 5px;
+        }
+    </style>
+
+</body>
+<!-- considerações finais: conforme sabemos, assim com nossa professora Ju falou, apenas copiar o
+     código sem entende-lo não vale apena, estude o código em detalhes e ajuste conforme sua necessidade,
+     esta não é a forma correta nem errada, nem melhor nem pior é apenas minha visão, de como resolver ,
+     cada um de nós tem visões diferences e ao mesmo tempo parecidas em alguns aspectos, minha intenssão
+     é de alguma forma contribuir  @Bart Silva-->
+
+</html>

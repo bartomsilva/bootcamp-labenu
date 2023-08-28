@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exmplos JS x DOM</title>
+    
+</head>
+
+<body>
+    <!-- Label = rotúlo = legenda -->
+    <label>Digite seu nome</label><br>
+    <!-- input = entrada, como se fosse um prompt  -->
+    <input id="fName" type="text" name="name">
+
+    <p></p>
+    <!-- nesse caso o <br> usa-se para quebrar a linha, não é usado para
+        dar espaço entre linhas -->
+
+    <!-- Label = rotúlo = legenda -->
+    <label>Digite sua idade</label><br>
+    <!-- input = entrada, como se fosse um prompt  -->
+    <input id="fAge" type="text" name="age" size="5">
+
+    <!-- para dar espaço entre linhas utizei o <p> -->
+    <p></p>
+
+    <!-- parágrafo onde ou por o texto, o span marca o lugar -->
+    <p>Olá <span id="sName">fulano de tal</span> você viveu aproximadamente <span id="sAge"> xxxx
+        </span> dias</p>
+
+    <!-- botão que chama a função que vai pegar os dados dos input
+        e por nos span  -->
+    <button onclick="lerDados()">Clique aqui DOM X JS</button>
+
+    <!-- o js deve fica em arquivo externo
+        está aqui apenas a título de estudo  e visualização-->
+    <script>
+        function lerDados() {
+            // lendo os dados contidos no formuário através dos
+            // id fName  e fAge ( acessando o DOM com JS)
+            const fName = document.querySelector("#fName").value
+            const fAge = document.querySelector("#fAge").value
+            // acessando o DOM nos ids sName e sAge e atribuindo
+            // os valores lidos acima, a propriedade que quarda o texto
+            // exibido é innerHTML
+            document.querySelector("#sName").innerHTML = fName
+            document.querySelector("#sAge").innerHTML = +fAge *365
+        }
+    </script>
+    <style>
+        body{
+            background: url("back.png") repeat;
+        }
+    </style>
+</body>
+
+</html>

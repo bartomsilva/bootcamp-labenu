@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <p id="teste">eu sou o texto o original</p>  -->
+
+    <div id="cards">
+        <!-- vázia -->
+    </div>
+   
+
+</body>
+
+<script>
+    // document.querySelector("#teste").textContent="novo valor de ps atribuido via JS"
+    // document.querySelector("#teste").style.fontSize = "50px";
+    // document.querySelector("#teste").style.color = "red";
+
+    // CRIANDO UMA DIV que será um card dentro dos cards-container
+    // aqui lê qual elemento vou incluir as outras divs
+    const obj = document.querySelector("#cards")
+
+    // vamos agora criar uma nova div
+    let newDiv = document.createElement("div")
+
+    // com a div criada mas ainda não adicionada
+    // vamos dar a ela uma class para utilizaremos no css para estilizar 
+    newDiv.setAttribute("class", "card-item")
+
+    // vamos criar um elemento p para por dentro dessa nova div
+    let newP = document.createElement("p")
+
+    // vamos dar um texto para essa tag ( p )
+    let text = document.createTextNode("eu fui criada via JS")
+
+    // precisamos agora adicionar o texto ao paragrafo (tag p )
+    newP.appendChild(text)
+
+    // agora vamos adicionar o parágrafo a nossa nova div
+    newDiv.appendChild(newP)
+
+    // e agora adicionar nossa nova div a div pai
+    obj.appendChild(newDiv)
+
+</script>
+
+<style>
+
+    /* vamos definiar a lagura máxima para div pai apenas para poder centralizar a nossa nova div */
+    #cards{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* veja que vamos aplicar a nova div um tamanho e background e alinhar o texto */
+    /* a título de exemplo utilizei valores absolutos em px */
+    .card-item{
+        width: 200px;
+        height: 200px;
+        background-color: black;
+        color: white;
+        display: grid;
+        place-items: center;
+    }
+</style>
+
+</html>

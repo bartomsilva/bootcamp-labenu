@@ -1,0 +1,45 @@
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+ section {
+     border: 1px solid black;
+     font-size: 4rem;
+     min-width: 320px;
+    }
+    
+    
+    main {
+        display: grid;
+        min-height: 100vh;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: blue;
+ }
+
+
+ /* tablet */
+ @media screen and (min-device-width: 481px) and (max-device-width: 800px) {
+     main {
+         background-color: red;
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     section {
+         font-size: 2rem;
+     }
+ }
+
+
+ /* celulares */
+ /* @media screen and (min-device-width: 320px) and (max-device-width: 480px) { */
+ @media screen and (max-device-width: 480px) {
+     main {
+         background-color: rgb(177, 243, 12);
+         grid-template-columns: 1fr;
+     }
+
+     section {
+         font-size: 1.3rem;
+     }
+ }

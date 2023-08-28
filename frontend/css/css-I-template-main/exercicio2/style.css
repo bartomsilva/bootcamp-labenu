@@ -1,0 +1,48 @@
+
+body{
+  margin-top: 20px;
+}
+
+
+
+.longe-bordas {
+  background-color: #FFA6A9;
+  padding: 5px 7px;
+  /* distância internar entre o elemento e a sua borda */
+  border: 2px solid green;
+  display: inline-block;
+  margin: 5px;  
+  /* distçância entre elementos */
+
+}
+
+.afastado {
+  background-color: hsl(203, 77%, 70%);  
+  display: inline-block;
+  margin: 80px;
+  
+}
+
+.alto {
+  background-color: #C3E887;
+  height: 300px;
+  width: 50%;
+}
+
+.largo {
+  background-color: #FFE396;
+  width: 500px;
+}
+
+.bordado {
+  background-color: #AF9BCC;
+}
+
+.sumido {
+
+}
+
+
+
+
+

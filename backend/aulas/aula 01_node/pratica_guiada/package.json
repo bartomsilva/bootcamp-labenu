@@ -1,0 +1,17 @@
+{
+  "name": "package-json-template-main",
+  "version": "1.0.0",
+  "description": "**Vamos utilizar esse repositório para as práticas da aula!**",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "returnBrasil": "clear && node index.js brazil",
+    "returnB": "clear && node index.js b",
+    "Add": "clear && node index.js - - add"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+  
+}

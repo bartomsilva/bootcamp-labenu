@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="h">
+
+    </div>
+
+   <div id="container">
+       <div>
+           <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo architecto dicta impedit ex officiis quod
+               nesciunt tempore sequi rerum repudiandae!</P>
+               <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo architecto dicta impedit ex officiis quod
+                nesciunt tempore sequi rerum repudiandae!</P>
+        </div>
+       <div>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat earum cupiditate et debitis excepturi
+               beatae? Modi possimus eveniet temporibus quia.</p>
+               <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo architecto dicta impedit ex officiis quod
+                nesciunt tempore sequi rerum repudiandae!</P>
+        </div>
+       <div>
+           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem ut qui eveniet inventore eius hic
+               doloribus nobis ea quos ipsum.</p>
+               <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo architecto dicta impedit ex officiis quod
+                nesciunt tempore sequi rerum repudiandae!</P>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem ut qui eveniet inventore eius hic
+                doloribus nobis ea quos ipsum.</p>
+                <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo architecto dicta impedit ex officiis quod
+                 nesciunt tempore sequi rerum repudiandae!</P>
+         </div>
+   </div>
+
+    <style>
+        h{
+            height: 152px;
+        }
+  
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;   
+            align-items: center;
+            gap: 20px;  
+            height: 777px;      
+        }
+        
+        p {
+            margin: 1rem;
+        }
+
+        #container div {
+            display: inline-block;
+            text-align: left;
+            width: 250px;
+            min-width: 300px;
+            border: 1px solid tomato;
+            
+        }
+
+        @media (max-width: 480px) {
+
+            body{
+                background-color: black;
+            }
+            #container {
+                /* display: block; */
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            #container div {
+                border: 2px solid rgb(255, 255, 255);
+                background-color: rgb(253, 255, 229);
+                width: 90vw;           
+                height: fit-content;
+                border-radius: 9px;
+            }
+
+            ;
+        }
+    </style>
+
+</body>
+
+</html>

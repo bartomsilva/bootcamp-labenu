@@ -1,0 +1,68 @@
+
+*{
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    font-family: sans-serif;
+    background-color: #004643;
+  }
+  
+  header{
+    padding: 20px;
+    color: #abd1c6;
+  }
+
+  main{
+    height: 1200px;
+    padding: 20px;
+    background-color: #e8e4e6;
+    margin: 10px;
+  }
+  
+  section{
+    height: 120px;
+    width: 180px;
+    background-color: white;
+    padding: 20px;
+    margin: 10px 0;
+  }
+  
+  nav{
+    padding: 20px;
+    background-color: white;
+    position: sticky;
+    top: 0px;
+  }
+
+  #fix{
+    position: fixed;
+    text-align: center;
+
+  }
+  
+  #color{
+    position: absolute;
+    left: 25%;    
+  }
+ 
+  aside{
+    position: absolute;
+    bottom: 0;
+    right: 8px;   
+  }
+      
+  footer{
+    background-color: #abd1c6;
+    padding: 20px;
+  }
+/* classe que vai colorir */
+  .color{
+    background-color: green;
+  }
+
+footer:hover{
+  cursor: pointer;
+  background-color: yellow;
+}

@@ -1,0 +1,88 @@
+p{
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 0;
+    
+}
+.container, .game, .score{
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+}
+.container div {
+    width: 50%;
+}
+.score {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 25px;
+    margin-top: 50px;
+    background-color: black;    
+}
+.score p {
+    color: aliceblue;
+    text-align: center;
+}
+
+.mesa {
+    flex-wrap: wrap;
+    border: 1px solid rgb(255, 255, 255);
+    gap: 5px;
+    align-content: flex-start;
+    background-color: rgb(1, 2, 2);
+}
+.mesa div {
+    width: 35px;
+}
+
+.carta {
+    display: flex;
+    height: 54px;
+    border: 1px solid rgb(255, 16, 55);
+    margin: 3px;
+    background-color: aliceblue;
+}
+.carta-top {
+    text-align: left;
+    align-self: flex-start;
+}
+.carta-center {
+    text-align: center; 
+    align-self: center;
+}
+.carta-botton {
+    text-align: right;
+    align-self: flex-end;
+}
+
+.game {
+    text-align: center;
+    line-height: 40px;
+}
+.game > div {
+    width: 100%;
+    height: 40px;
+    background-color: black;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.none {
+    display: none;
+}
+
+/* cores no score - texto  */
+.green{
+    color: rgb(28, 250, 28);
+}
+.red{
+    color: rgb(255, 9, 50);
+}
+.yellow{
+    color: rgb(218, 255, 11);
+}
+

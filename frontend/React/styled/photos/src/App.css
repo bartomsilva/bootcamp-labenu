@@ -1,0 +1,14 @@
+img{
+  width: 400px;
+}
+body{
+  margin: 0 auto;
+  width: 100%;
+}
+#container-photo{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px;
+
+}

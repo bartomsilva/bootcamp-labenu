@@ -1,0 +1,24 @@
+table {
+    vertical-align: center;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: rgb(138, 181, 245);
+    color: rgb(2, 0, 0);
+}
+
+.tCinza {
+    background-color: gray;
+}
+
+table th,
+table td {
+    border: 1px solid black;
+}
+
+td {
+    width: 150px;
+    height: 30px;
+    padding-left: 4px;
+}

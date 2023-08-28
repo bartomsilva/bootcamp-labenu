@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="cards">
+        <div id="d1">a
+            <span id="s1"></span>
+        </div>
+        <div id="d2">b</div>
+        <div id="d3">c</div>
+        <div id="d4">d</div>
+    </div>
+
+    <style>
+        #cards{
+            display: grid;
+            grid-template-columns: repeat(4,100px);
+            grid-template-rows: repeat(4,100px);
+            grid-template-areas:
+            "foto1 foto2 foto3 foto4"   
+            "foto1 foto2 foto3 foto4"   
+            "foto1 foto2 foto3 foto4"   
+            "foto1 foto2 foto3 foto4";   
+            justify-content: center;
+            align-content: center;      
+        }    
+        #d1{
+            grid-area: foto1;
+            border: 1px solid tomato;
+        }
+        
+        #d2{
+            grid-area: foto2;
+            border: 1px solid tomato;
+        }
+        #d3{
+            grid-area: foto3;
+            border: 1px solid tomato;
+        }
+        
+        #d4{
+            grid-area: foto4;
+            border: 1px solid tomato;
+        }
+        
+        @media (max-width: 480px){
+            #cards{
+                grid-template-columns: 50vw 50vw;
+                grid-template-areas:
+            "foto1 foto1"
+            "foto2 ."
+            ".    foto3"
+            "foto4 .";   
+
+            }
+        }
+    </style>
+    <script>
+        const name="Bart"
+        // ler o dbj div
+        let obj=document.querySelector("#d1")
+        // criou um P
+        let meuP=document.createElement("p")
+        // criou um texto
+        let meuT=document.createTextNode("Ozemela")
+        // add text ao paragrafo
+        meuP.appendChild(meuT)
+        // add paragrafo a div
+        obj.appendChild(meuP)
+
+        meuP=document.createElement("p")
+        // criou um texto
+        meuP.setAttribute("id","teste")
+        meuP.setAttribute("class","cards")
+        meuT=document.createTextNode("Dev 2023 Fla Rê Bart")
+        // add text ao paragrafo
+        meuP.appendChild(meuT)
+        // add paragrafo a div
+        obj.appendChild(meuP)
+
+        meuP=document.createElement("p")
+        // criou um texto
+        meuT=document.createTextNode("*************")
+        // add text ao paragrafo
+        meuP.appendChild(meuT)
+        // add paragrafo a div
+        obj.appendChild(meuP)
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>

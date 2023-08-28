@@ -1,0 +1,11 @@
+.Container{
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: bisque;
+}
