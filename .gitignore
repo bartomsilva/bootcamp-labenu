@@ -9,3 +9,5 @@ build
 *.zip
 *.arj
 *.exe
+coverage
+

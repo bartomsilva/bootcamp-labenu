@@ -12,6 +12,7 @@ export function challenge2(numberOne:number, numberTwo:number){
   if ( typeof numberOne != "number" || typeof numberTwo !="number"){
     return result
   }
+  
   if (numberOne === 0 || numberTwo === 0) {
     return result
   }
