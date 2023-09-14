@@ -1,3 +1,4 @@
+import { error } from "console"
 import { UserDatabase } from "../database/UserDatabase"
 import { DeleteUserInputDTO, DeleteUserOutputDTO } from "../dtos/user/deleteUser.dto"
 import { GetUsersInputDTO, GetUsersOutputDTO } from "../dtos/user/getUsers.dto"
@@ -5,10 +6,11 @@ import { LoginInputDTO, LoginOutputDTO } from "../dtos/user/login.dto"
 import { SignupInputDTO, SignupOutputDTO } from "../dtos/user/signup.dto"
 import { BadRequestError } from "../errors/BadRequestError"
 import { NotFoundError } from "../errors/NotFoundError"
-import { TokenPayload, USER_ROLES, User } from "../models/User"
+import { TokenPayload, USER_ROLES, User, UserDB } from "../models/User"
 import { HashManager } from "../services/HashManager"
 import { IdGenerator } from "../services/IdGenerator"
 import { TokenManager } from "../services/TokenManager"
+import { GetUsersByIdInputDTO, GetUsersByIdOutputDTO } from "../dtos/user/getUserById.dto"
 
 export class UserBusiness {
   constructor(
@@ -26,15 +28,15 @@ export class UserBusiness {
     const payload = this.tokenManager.getPayload(token)
 
     if (payload === null) {
-        throw new BadRequestError("token inválido")
-    } 
+      throw new BadRequestError("token inválido")
+    }
 
     if (payload.role !== USER_ROLES.ADMIN) {
       throw new BadRequestError("somente admins podem acessar")
     }
 
-    const usersDB = await this.userDatabase.findUsers(q)
-
+    const usersDB  = await this.userDatabase.findUsers(q)
+     
     const users = usersDB.map((userDB) => {
       const user = new User(
         userDB.id,
@@ -52,6 +54,32 @@ export class UserBusiness {
 
     return output
   }
+
+  public getUsersById = async (input: GetUsersByIdInputDTO):
+    Promise<GetUsersByIdOutputDTO> => {
+    const { id, token } = input
+
+    const payload = this.tokenManager.getPayload(token)
+
+    if (payload === null)
+      throw new BadRequestError("token inválido")
+
+    const result = await this.userDatabase.findUserById(id)
+
+    if (!result)
+      throw new BadRequestError("id não encontrado")
+
+    const user = new User(
+      result.id,
+      result.name,
+      result.email,
+      result.password,
+      result.role,
+      result.created_at
+    )
+    return user.toBusinessModel()
+  }
+
 
   public signup = async (
     input: SignupInputDTO
@@ -141,21 +169,21 @@ export class UserBusiness {
     const payload = this.tokenManager.getPayload(token)
 
     if (payload === null) {
-        throw new BadRequestError("token inválido")
-    } 
+      throw new BadRequestError("token inválido")
+    }
 
     if (payload.role !== USER_ROLES.ADMIN) {
       throw new BadRequestError("somente admins podem acessar")
     }
 
     const usersDB = await this.userDatabase.findUserById(userId)
-    if ( !usersDB ) {
+    if (!usersDB) {
       throw new BadRequestError("'id' não encontrado.")
     }
 
     await this.userDatabase.deleteUser(userId)
-    
-    return { message: "usuário deletado com sucesso."}
+
+    return { message: "usuário deletado com sucesso." }
 
   }
 }
