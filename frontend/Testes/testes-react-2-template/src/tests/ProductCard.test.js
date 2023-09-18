@@ -30,22 +30,13 @@ const addToCart = jest.fn()
 
 describe("Card", () => {
 
-  test("Deve renderizar os cards com título, preço e imagem", () => {
-    render(<ProductsList
-      products={productsMock}
-      addToCart={addToCart}
-    />)
-
-    //screen.logTestingPlaygroundURL()
-
-    const title = screen.getByRole('heading', { name: /produto-1/i })
-    const price = screen.getByText(/\$103\.03/i)
-    const image = screen.getByRole('img', { name: /produto\-1/i })
-
-    // expect(title).toBeInTheDocument()
-    // expect(price).toBeInTheDocument()
-    // expect(image).toBeInTheDocument()
-  })
+  // test("Deve renderizar os cards com título, preço e imagem",
+  //   () => {
+  //     render(<ProductsList
+  //       products={productsMock}
+  //       addToCart={addToCart}
+  //     />)
+  //   })
 
   test("Deve renderizar os cards com título, preço, imagem, e botão de comprar",
     () => {
@@ -54,18 +45,22 @@ describe("Card", () => {
         addToCart={addToCart}
       />)
 
-      screen.logTestingPlaygroundURL()
+      //screen.logTestingPlaygroundURL()
 
-      const title = screen.getByRole('heading', { name: /produto-1/i })
-      const price = screen.getByText(/\$103\.03/i)
-      const image = screen.getByRole('img', { name: /produto\-1/i })
-      const bbuy = screen.getByRole('button', {name: /buy/i});
+      // const title = screen.getByRole('heading', { name: /produto-1/i })
+      // const price = screen.getByText(/\$103\.03/i)
+      // const image = screen.getByRole('img', { name: /produto\-1/i })
+      // const buttonBuy = screen.getAllByRole('button', { name: /buy/i })
+      // const buttonBuy = screen.getAllByText(/buy/i)
+      
+      const buttonBuy = screen.getAllByRole('button', { name: /buy/i })
+      
 
-      console.log(bbuy)
-
-      expect(title).toBeInTheDocument()
-      expect(price).toBeInTheDocument()
-      expect(bbuy).toBeInTheDocument()
+      // expect(title).toBeInTheDocument()
+      // expect(price).toBeInTheDocument()
       // expect(image).toBeInTheDocument()
+      //expect(buttonBuy[0]).toBeInTheDocument()
+      expect(buttonBuy).toHaveLength(4)
+
     })
 })

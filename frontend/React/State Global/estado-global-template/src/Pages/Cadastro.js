@@ -10,7 +10,6 @@ export default function Cadastro (props){
   const[formulario, setFormulario]=useState({id:"",name:"", url:"", price:""})
   const navigate = useNavigate();
   const context = useContext(GlobalStateContext)
-
   const { setFrutas,frutas } = context  
 
   const onChangeInputs=(event)=>{

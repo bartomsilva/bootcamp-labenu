@@ -18,6 +18,7 @@ function Router() {
         <ProtectedRoute redirectTo={'/'}>
           <FeedPage />
         </ProtectedRoute>}/>
+        
         <Route path={"/newrecipe"} element={
         <ProtectedRoute redirectTo={'/'}>
           <CreateRecipe />
